@@ -6,7 +6,7 @@ This tool replicates the discovery process I run with clients — you describe y
 
 Built with Next.js, TypeScript, Shadcn/UI, and the Anthropic API. Deployed on Vercel.
 
-[Live demo](https://ai-use-case-discovery-tool.vercel.app) · [Book a consultation](https://www.linkedin.com/in/christianfuttrup)
+[Live demo](https://ai-use-case-discovery-tool.vercel.app) · [Book a consultation](https://www.linkedin.com/in/futtrup)
 
 ---
 
@@ -24,13 +24,13 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Stack
 
-| Layer | Choice |
-| :---- | :----- |
-| Framework | Next.js 15 (App Router) |
-| Styling | Tailwind CSS + Shadcn/UI |
-| LLM | Anthropic API (Claude Sonnet) |
-| Validation | Zod |
-| Deployment | Vercel |
+| Layer      | Choice                        |
+| :--------- | :---------------------------- |
+| Framework  | Next.js 15 (App Router)       |
+| Styling    | Tailwind CSS + Shadcn/UI      |
+| LLM        | Anthropic API (Claude Sonnet) |
+| Validation | Zod                           |
+| Deployment | Vercel                        |
 
 ## How it works
 
