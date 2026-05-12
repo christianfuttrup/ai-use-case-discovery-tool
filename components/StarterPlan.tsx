@@ -10,22 +10,25 @@ const PHASES = [
     key: "days1to30" as const,
     label: "Days 1–30",
     subtitle: "Diagnose",
-    cardClass: "border-blue-200 bg-blue-50/60",
-    titleClass: "text-blue-700",
+    cardClass: "border-blue-500/20 bg-blue-500/[0.06]",
+    labelClass: "text-blue-400",
+    titleClass: "text-blue-300",
   },
   {
     key: "days31to60" as const,
     label: "Days 31–60",
     subtitle: "Pilot",
-    cardClass: "border-emerald-200 bg-emerald-50/60",
-    titleClass: "text-emerald-700",
+    cardClass: "border-emerald-500/20 bg-emerald-500/[0.06]",
+    labelClass: "text-emerald-400",
+    titleClass: "text-emerald-300",
   },
   {
     key: "days61to90" as const,
     label: "Days 61–90",
     subtitle: "Review",
-    cardClass: "border-purple-200 bg-purple-50/60",
-    titleClass: "text-purple-700",
+    cardClass: "border-purple-500/20 bg-purple-500/[0.06]",
+    labelClass: "text-purple-400",
+    titleClass: "text-purple-300",
   },
 ];
 
@@ -36,7 +39,7 @@ export default function StarterPlan({ plan }: Props) {
         <Card key={phase.key} className={phase.cardClass}>
           <CardHeader className="pb-2">
             <p
-              className={`text-xs font-semibold uppercase tracking-widest ${phase.titleClass}`}
+              className={`text-xs font-semibold uppercase tracking-widest ${phase.labelClass}`}
             >
               {phase.label}
             </p>
@@ -45,7 +48,7 @@ export default function StarterPlan({ plan }: Props) {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-foreground/80 leading-relaxed">
+            <p className="text-sm text-foreground/75 leading-relaxed">
               {plan[phase.key]}
             </p>
           </CardContent>

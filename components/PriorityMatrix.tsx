@@ -5,7 +5,7 @@ interface Props {
   useCases: UseCase[];
 }
 
-const DOT_COLORS = ["#4f46e5", "#059669", "#d97706", "#dc2626", "#7c3aed"];
+const DOT_COLORS = ["#818cf8", "#34d399", "#fbbf24", "#f87171", "#a78bfa"];
 
 const W = 500;
 const H = 380;
@@ -42,28 +42,28 @@ export default function PriorityMatrix({ useCases }: Props) {
               y={PAD_TOP}
               width={PLOT_W / 2}
               height={PLOT_H / 2}
-              fill="#f0fdf4"
+              fill="rgba(5,150,105,0.07)"
             />
             <rect
               x={PAD_LEFT + PLOT_W / 2}
               y={PAD_TOP}
               width={PLOT_W / 2}
               height={PLOT_H / 2}
-              fill="#fffbeb"
+              fill="rgba(217,119,6,0.07)"
             />
             <rect
               x={PAD_LEFT}
               y={PAD_TOP + PLOT_H / 2}
               width={PLOT_W / 2}
               height={PLOT_H / 2}
-              fill="#f9fafb"
+              fill="rgba(75,85,99,0.04)"
             />
             <rect
               x={PAD_LEFT + PLOT_W / 2}
               y={PAD_TOP + PLOT_H / 2}
               width={PLOT_W / 2}
               height={PLOT_H / 2}
-              fill="#fff1f2"
+              fill="rgba(220,38,38,0.06)"
             />
 
             {/* Quadrant labels */}
@@ -71,7 +71,7 @@ export default function PriorityMatrix({ useCases }: Props) {
               x={PAD_LEFT + 8}
               y={PAD_TOP + 18}
               fontSize="11"
-              fill="#16a34a"
+              fill="#34d399"
               fontWeight="600"
             >
               Quick Wins
@@ -80,7 +80,7 @@ export default function PriorityMatrix({ useCases }: Props) {
               x={PAD_LEFT + PLOT_W / 2 + 8}
               y={PAD_TOP + 18}
               fontSize="11"
-              fill="#d97706"
+              fill="#fbbf24"
               fontWeight="600"
             >
               Strategic Bets
@@ -89,7 +89,7 @@ export default function PriorityMatrix({ useCases }: Props) {
               x={PAD_LEFT + 8}
               y={PAD_TOP + PLOT_H / 2 + 18}
               fontSize="11"
-              fill="#9ca3af"
+              fill="#6b7280"
             >
               Fill-ins
             </text>
@@ -109,7 +109,7 @@ export default function PriorityMatrix({ useCases }: Props) {
               width={PLOT_W}
               height={PLOT_H}
               fill="none"
-              stroke="#e5e7eb"
+              stroke="#1f2937"
               strokeWidth="1"
             />
             <line
@@ -117,7 +117,7 @@ export default function PriorityMatrix({ useCases }: Props) {
               y1={PAD_TOP}
               x2={PAD_LEFT + PLOT_W / 2}
               y2={PAD_TOP + PLOT_H}
-              stroke="#d1d5db"
+              stroke="#374151"
               strokeWidth="1"
               strokeDasharray="4 4"
             />
@@ -126,7 +126,7 @@ export default function PriorityMatrix({ useCases }: Props) {
               y1={PAD_TOP + PLOT_H / 2}
               x2={PAD_LEFT + PLOT_W}
               y2={PAD_TOP + PLOT_H / 2}
-              stroke="#d1d5db"
+              stroke="#374151"
               strokeWidth="1"
               strokeDasharray="4 4"
             />
@@ -137,7 +137,7 @@ export default function PriorityMatrix({ useCases }: Props) {
               y={PAD_TOP + PLOT_H / 2}
               fontSize="11"
               textAnchor="middle"
-              fill="#6b7280"
+              fill="#9ca3af"
               transform={`rotate(-90, 14, ${PAD_TOP + PLOT_H / 2})`}
             >
               Business Value ↑
@@ -149,7 +149,7 @@ export default function PriorityMatrix({ useCases }: Props) {
               y={H - 6}
               fontSize="11"
               textAnchor="middle"
-              fill="#6b7280"
+              fill="#9ca3af"
             >
               Implementation Effort →
             </text>
@@ -166,9 +166,9 @@ export default function PriorityMatrix({ useCases }: Props) {
                     cy={cy}
                     r={18}
                     fill={color}
-                    fillOpacity={0.15}
+                    fillOpacity={0.12}
                     stroke={color}
-                    strokeWidth={2}
+                    strokeWidth={1.5}
                   />
                   <text
                     x={cx}
@@ -194,7 +194,7 @@ export default function PriorityMatrix({ useCases }: Props) {
               className="flex items-center gap-1.5 text-xs text-muted-foreground"
             >
               <div
-                className="w-3 h-3 rounded-full shrink-0"
+                className="w-2.5 h-2.5 rounded-full shrink-0"
                 style={{ backgroundColor: DOT_COLORS[i % DOT_COLORS.length] }}
               />
               <span>

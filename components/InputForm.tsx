@@ -31,12 +31,12 @@ const COMPANY_SIZES = [
 ];
 
 const AI_MATURITY_OPTIONS = [
-  { value: "none", label: "None" },
+  { value: "none", label: "None — we haven't explored AI yet" },
   {
     value: "informal",
-    label: "Using tools like Copilot or ChatGPT informally",
+    label: "Informal — using Copilot or ChatGPT occasionally",
   },
-  { value: "experimenting", label: "Actively experimenting with AI" },
+  { value: "experimenting", label: "Active — running AI experiments now" },
 ];
 
 export default function InputForm() {
@@ -82,13 +82,13 @@ export default function InputForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-7">
       <div className="space-y-2">
-        <Label htmlFor="industry">
+        <Label htmlFor="industry" className="text-sm font-medium">
           Industry <span className="text-destructive">*</span>
         </Label>
         <Select onValueChange={(v) => setForm({ ...form, industry: v })}>
-          <SelectTrigger id="industry">
+          <SelectTrigger id="industry" className="bg-input/30">
             <SelectValue placeholder="Select your industry…" />
           </SelectTrigger>
           <SelectContent>
@@ -102,19 +102,23 @@ export default function InputForm() {
       </div>
 
       <div className="space-y-3">
-        <Label>
+        <Label className="text-sm font-medium">
           Company size <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           onValueChange={(v) => setForm({ ...form, companySize: v })}
-          className="flex flex-wrap gap-5"
+          className="flex flex-wrap gap-2"
         >
           {COMPANY_SIZES.map((size) => (
-            <div key={size.value} className="flex items-center space-x-2">
-              <RadioGroupItem value={size.value} id={`size-${size.value}`} />
+            <div key={size.value}>
+              <RadioGroupItem
+                value={size.value}
+                id={`size-${size.value}`}
+                className="peer sr-only"
+              />
               <Label
                 htmlFor={`size-${size.value}`}
-                className="font-normal cursor-pointer"
+                className="flex cursor-pointer rounded-full border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-primary/50 hover:text-foreground peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 peer-data-[state=checked]:text-primary"
               >
                 {size.label}
               </Label>
@@ -124,7 +128,7 @@ export default function InputForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="workflows">
+        <Label htmlFor="workflows" className="text-sm font-medium">
           3 most time-consuming workflows{" "}
           <span className="text-destructive">*</span>
         </Label>
@@ -137,27 +141,29 @@ export default function InputForm() {
           rows={4}
           placeholder={"1. \n2. \n3. "}
           value={form.workflows}
+          className="bg-input/30 resize-none"
           onChange={(e) => setForm({ ...form, workflows: e.target.value })}
         />
       </div>
 
       <div className="space-y-3">
-        <Label>
+        <Label className="text-sm font-medium">
           Current AI maturity <span className="text-destructive">*</span>
         </Label>
         <RadioGroup
           onValueChange={(v) => setForm({ ...form, aiMaturity: v })}
-          className="space-y-2"
+          className="flex flex-col gap-2"
         >
           {AI_MATURITY_OPTIONS.map((opt) => (
-            <div key={opt.value} className="flex items-center space-x-2">
+            <div key={opt.value}>
               <RadioGroupItem
                 value={opt.value}
                 id={`maturity-${opt.value}`}
+                className="peer sr-only"
               />
               <Label
                 htmlFor={`maturity-${opt.value}`}
-                className="font-normal cursor-pointer"
+                className="flex cursor-pointer rounded-lg border border-border px-4 py-3 text-sm font-medium text-muted-foreground transition-all hover:border-primary/50 hover:text-foreground peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 peer-data-[state=checked]:text-primary"
               >
                 {opt.label}
               </Label>
@@ -167,7 +173,7 @@ export default function InputForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="painPoints">
+        <Label htmlFor="painPoints" className="text-sm font-medium">
           Biggest pain points or bottlenecks{" "}
           <span className="text-muted-foreground font-normal">(optional)</span>
         </Label>
@@ -176,13 +182,19 @@ export default function InputForm() {
           rows={3}
           placeholder="Where do things slow down or break?"
           value={form.painPoints}
+          className="bg-input/30 resize-none"
           onChange={(e) => setForm({ ...form, painPoints: e.target.value })}
         />
       </div>
 
       {error && <p className="text-sm text-destructive">{error}</p>}
 
-      <Button type="submit" disabled={loading} className="w-full" size="lg">
+      <Button
+        type="submit"
+        disabled={loading}
+        className="w-full btn-glow"
+        size="lg"
+      >
         {loading ? "Analysing your business…" : "Discover AI use cases →"}
       </Button>
     </form>
